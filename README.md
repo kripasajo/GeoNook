@@ -1,33 +1,32 @@
 <img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/35332e92-44cb-425b-9dff-27bcf1023c6c">
 
-# [Project Name] 🎯
+# [GeoNook] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Kripa Sajo]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Kripa Sajo] - [Viswajyothi College of engineering and technology,Vazhakulam]
+
 
 ### Project Description
-[2-3 lines about what your project does]
+[Geo Location Reminder is a web-based application designed to assist users in managing location-based tasks. The platform integrates an interactive map, where users can add, view, and manage tasks to be done. And the application provides a push notification for when a users current location is within a nearby radius of the location of the tasks.]
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+[Providing a solution to make commutes as effective as possible without the traveller forgetting tasks as they make their daily commutes]
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+[I made an application that sends notifications to the users when they reach the nearby radius of the tasks. So the user is reminded of the task.]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- [HTML, CSS, JavaScript]
+- [Geocoder Plugin: https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js]
+- [leaflet.js, HTML5 Geolocation API]
+- [Leaflet Control Geocoder]
 
 For Hardware:
 - [List main components]
@@ -46,14 +45,17 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1]![Screenshot 2024-10-26 120842](https://github.com/user-attachments/assets/2556107e-ddf4-43de-88f9-f4bec2c09090)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+*This shows the home page of the app. It consists of a interactive map, add new task button, display of all the saved tasks, start journey button*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2]![Screenshot 2024-10-26 120901](https://github.com/user-attachments/assets/7017828e-753f-46a5-9413-c0db6f85fab0)
+
+*When add task button is clicked a field is displayed to enter the name os the task and search the location. When location is enetered the pointer in themapmoves to the exact location and the longitude and latitude is updated*
+
+![Screenshot3]![Screenshot 2024-10-26 120917](https://github.com/user-attachments/assets/0c2b455f-70aa-40ea-b07a-bd18d5d4384b)
+
+*When nearest tasks is clicked, a push notification is send if the task is within proximity. Once the done button is clicked, the task is automatically removed from the list od tasks. Otherwise, the reminder can be closed and the tasks stays.*
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
@@ -80,16 +82,15 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+[link](https://drive.google.com/file/d/142UQwKIMXhSPjFx1aJ3FZ72rd2zS3dTS/view?usp=sharing)
+*Thee video shows the basic working of the application. There is an interactive map, a task adder to add tasks and delete them. A task can be added by selecting the location . Once start journey is clicked, the nearest task location is identified and displayed. It can be closed or clicked done. Once done is clicked the task is removed from the tasklist.*
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- [Kripa Sajo]: [Made and implemented this web application]
+  
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
