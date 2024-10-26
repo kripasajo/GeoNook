@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoNook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+</head>
+<body style="background-color: lightblue;">
+    <h1 id="site-title">GeoReminder</h1>
+
+    <!-- Navigation Buttons -->
+    <button onclick="showSection('task-menu')">Main Task Menu</button>
+    <button onclick="showSection('proximity-check')">Start Journey</button>
+
+    <!-- Main Task Menu Section -->
+    <section id="task-menu">
+        <h2>Add and Manage Tasks</h2>
+        <button id="new-task-btn">Add New Task</button>
+        
+        <form id="task-form" style="display: none;">
+            <input type="text" id="task" placeholder="Enter Task name" required>
+            
+            <!-- Location Search Input -->
+            <input type="text" id="location-input" placeholder="Enter the location" />
+            <button id="search-btn">Search</button>
+
+            <!-- Location Input for Latitude and Longitude -->
+            <input type="number" id="latitude" placeholder="Latitude" step="any" required>
+            <input type="number" id="longitude" placeholder="Longitude" step="any" required>
+            
+            <button type="submit">Save Task</button>
+        </form>
+        
+        <div id="suggestions"></div> <!-- Suggestions div -->
+    
+        <ul id="task-list"></ul>
+    </section>
+    
+
+    <!-- Proximity Check Section -->
+    <section id="proximity-check" style="display: none;">
+        <h2>Task Proximity Check</h2>
+        <button onclick="startProximityCheck()">Nearest tasks</button>
+    </section>
+
+    <!-- Popup Modal for Notifications -->
+    <div id="popup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <p id="popup-message"></p>
+            <button id="mark-done-button" onclick="markTaskDone()">Mark Done</button>
+        </div>
+    </div>
+
+    <!-- Map Div for Selecting Task Location -->
+    <div id="map" style="height: 400px; width: 100%;"></div>
+
+    <script src="script.js"></script>
+    <script src="task.js"></script>
+
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([20.5937, 78.9629], 5); // Default view to center of India
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Marker for current location
+        let currentLocationMarker;
+
+        // Function to display current location
+        function showCurrentLocation() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLat = position.coords.latitude;
+                        const userLon = position.coords.longitude;
+
+                        // Center map on current location
+                        map.setView([userLat, userLon], 13); // Zoom level 13
+
+                        // Add marker for current location
+                        if (currentLocationMarker) {
+                            map.removeLayer(currentLocationMarker); // Remove old marker if it exists
+                        }
+                        currentLocationMarker = L.marker([userLat, userLon]).addTo(map);
+                        currentLocationMarker.bindPopup("You are here!").openPopup();
+                    },
+                    (error) => {
+                        console.error("Error fetching location:", error);
+                        alert("Could not retrieve location.");
+                    }
+                );
+            } else {
+                alert("Geolocation not supported by this browser.");
+            }
+        }
+
+        // Call the function to show current location
+        showCurrentLocation();
+
+        // Event listener to update latitude and longitude on map click
+        map.on('click', function(e) {
+            const { lat, lng } = e.latlng;
+
+            // Add marker at clicked location
+            if (currentLocationMarker) {
+                map.removeLayer(currentLocationMarker);
+            }
+            currentLocationMarker = L.marker([lat, lng]).addTo(map);
+
+            // Update the form fields with selected latitude and longitude
+            document.getElementById("latitude").value = lat.toFixed(5);
+            document.getElementById("longitude").value = lng.toFixed(5);
+        });
+
+        // Functionality for the search button
+        document.getElementById('search-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const locationInput = document.getElementById('location-input').value;
+            // Implement search logic here (using geocoding, etc.)
+            // This can involve using the Control Geocoder or any other API for location search
+        });
+    </script>
+</body>
+</html>

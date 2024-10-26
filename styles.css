@@ -1,0 +1,245 @@
+/* Basic resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 16px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Title */
+h1 {
+    font-size: 2rem;
+    color: #005a8d;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+/* Current Location Display */
+#current-location {
+    background-color: #e0f7fa;
+    border: 2px solid #00838f;
+    border-radius: 8px;
+    padding: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Navigation Buttons */
+button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+/* Main Task Menu Section */
+#task-menu,
+#proximity-check {
+    width: 50%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Input Styling */
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #00796b;
+}
+
+/* Task List Styling */
+#task-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+#task-list li {
+    background-color: #f1f8e9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #b71c1c;
+}
+
+/* Modal Popup */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* Completed task styling */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+#map {
+
+  
+    height:40px;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    
+   
+}
+
+#task-list {
+    max-height: 200px; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    padding: 10px; /* Optional: Add padding */
+    margin-top: 10px; /* Optional: Add margin */
+}
+
+/* Styles for the site title */
+#site-title {
+    font-family: 'Arial', sans-serif; /* Use a modern sans-serif font */
+    font-size: 4em; /* Increase the font size */
+    text-align: center; /* Center the title */
+    color: #007BFF; /* Main text color (blue) */
+    margin: 20px 0; /* Margin for spacing */
+    padding: 10px; /* Padding around the text */
+    text-shadow: 2px 2px 5px rgba(0, 0, 255, 0.5); /* Subtle shadow for depth */
+    animation: fadeIn 2s ease-in-out; /* Animation for fading in */
+}
+
+/* Styles for the 'Reminder' part */
+#site-title span {
+    color: #0056b3; /* A darker shade of blue for 'Reminder' */
+    font-weight: bold; /* Make it bold */
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start completely transparent */
+        transform: translateY(-20px); /* Move up slightly */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Original position */
+    }
+}
+
+/* Optional: Adding a hover effect */
+#site-title:hover {
+    color: #225c99; /* Darker blue on hover */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+
+.suggestions {
+    border: 1px solid #ccc;
+    background-color: white;
+    position: absolute; /* Position near the input field */
+    z-index: 1000; /* Ensure it is above other elements */
+    max-height: 200px; /* Limit height for scrolling */
+    overflow-y: auto; /* Allow scrolling if suggestions overflow */
+    width: 300px; /* Adjust as necessary */
+    display: none; /* Initially hidden */
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer; /* Show pointer on hover */
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
